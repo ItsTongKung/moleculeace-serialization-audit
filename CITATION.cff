@@ -24,6 +24,8 @@ license:
   - CC-BY-4.0
 version: "1.0.0"
 date-released: "2026-10-02"
+repository-code: "https://github.com/ItsTongKung/moleculeace-serialization-audit"
+doi: "10.5281/zenodo.23096971"
 references:
   - type: software
     title: MoleculeACE

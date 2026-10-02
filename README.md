@@ -5,7 +5,7 @@ Code, derived data and per-molecule predictions for the preprint
 > Sriwicha P. **SMILES serialization changes activity-cliff annotations in the MoleculeACE
 > benchmark.** ChemRxiv (2026). Preprint DOI: *assigned by ChemRxiv on posting*.
 
-Archived release of this repository: DOI *to be added on archiving* (Zenodo).
+Archived release of this repository: [doi:10.5281/zenodo.23096971](https://doi.org/10.5281/zenodo.23096971) (Zenodo, version 1.0.0).
 
 ## 1. What is tested
 
