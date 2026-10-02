@@ -1,6 +1,7 @@
 {
   "title": "moleculeace-serialization-audit: code and data for \"SMILES serialization changes activity-cliff annotations in the MoleculeACE benchmark\"",
   "upload_type": "software",
+  "version": "1.0.0",
   "description": "<p>Code, serialization-invariant activity-cliff label sets, split assignments (including 24 same-definition split realizations), analysis result tables, figure source data and per-molecule test predictions of every fitted model for the study <em>SMILES serialization changes activity-cliff annotations in the MoleculeACE benchmark</em>.</p><p>The study holds the molecules, potencies, thresholds and code of the MoleculeACE benchmark (molML/MoleculeACE, commit 7e6de0bd2968c56589c580f2a397f01c531ede26) fixed and varies only the SMILES serialization of the same molecules. Re-serialization with Indigo and Open Babel changed a median of 8.98% and 9.48% of compound labels; the graph-derived criteria were invariant. The release allows MoleculeACE to be re-evaluated under any of four cliff definitions without retraining.</p><p>Licenses: code (src/, scripts/, reproduce.py) under MIT; derived data (labels/, splits/, predictions/, results/, figures/) under CC BY 4.0. Columns reproduced from MoleculeACE (SMILES, potencies, shipped labels and split) remain under the upstream MoleculeACE (MIT) and ChEMBL (CC BY-SA 3.0) terms; see LICENSE-DATA. MoleculeACE itself is not redistributed; reproduce.py retrieves it from the audited commit.</p>",
   "creators": [
     {
