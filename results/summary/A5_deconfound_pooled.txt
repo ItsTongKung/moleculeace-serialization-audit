@@ -1,0 +1,22 @@
+==============================================================================================================
+A-5  DE-CONFOUNDING: cliff penalty (own-complement) by DESCRIPTOR family
+     ECFP4 shares its representation with the D1/D2 cliff definitions; MACCS partly; PHYSCHEM not at all.
+==============================================================================================================
+
+  --- arm S0 ---
+   D1   ECFP     +0.368 to +0.385 (4/4 CI excl. 0) | MACCS    +0.283 to +0.360 (4/4 CI excl. 0) | PHYSCHEM +0.139 to +0.164 (4/4 CI excl. 0) |
+   D2   ECFP     +0.125 to +0.163 (4/4 CI excl. 0) | MACCS    +0.119 to +0.147 (4/4 CI excl. 0) | PHYSCHEM +0.015 to +0.037 (0/4 CI excl. 0) |
+   D0   ECFP     +0.124 to +0.174 (4/4 CI excl. 0) | MACCS    +0.121 to +0.142 (4/4 CI excl. 0) | PHYSCHEM +0.027 to +0.058 (2/4 CI excl. 0) |
+   D3   ECFP     +0.009 to +0.053 (0/4 CI excl. 0) | MACCS    -0.005 to +0.031 (0/4 CI excl. 0) | PHYSCHEM -0.045 to +0.003 (0/4 CI excl. 0) |
+
+  --- arm R0 ---
+   D1   ECFP     +0.349 to +0.367 (4/4 CI excl. 0) | MACCS    +0.289 to +0.366 (4/4 CI excl. 0) | PHYSCHEM +0.165 to +0.192 (4/4 CI excl. 0) |
+   D2   ECFP     +0.136 to +0.168 (4/4 CI excl. 0) | MACCS    +0.134 to +0.150 (4/4 CI excl. 0) | PHYSCHEM +0.031 to +0.058 (2/4 CI excl. 0) |
+   D0   ECFP     +0.128 to +0.174 (4/4 CI excl. 0) | MACCS    +0.126 to +0.145 (4/4 CI excl. 0) | PHYSCHEM +0.041 to +0.069 (4/4 CI excl. 0) |
+   D3   ECFP     +0.012 to +0.046 (0/4 CI excl. 0) | MACCS    -0.011 to +0.031 (0/4 CI excl. 0) | PHYSCHEM -0.047 to +0.002 (0/4 CI excl. 0) |
+
+  --- arm R2 ---
+   D1   ECFP     +0.314 to +0.351 (4/4 CI excl. 0) | MACCS    +0.332 to +0.359 (4/4 CI excl. 0) | PHYSCHEM +0.135 to +0.180 (4/4 CI excl. 0) |
+   D2   ECFP     +0.143 to +0.168 (4/4 CI excl. 0) | MACCS    +0.138 to +0.154 (4/4 CI excl. 0) | PHYSCHEM +0.039 to +0.063 (3/4 CI excl. 0) |
+   D0   ECFP     +0.140 to +0.168 (4/4 CI excl. 0) | MACCS    +0.136 to +0.148 (4/4 CI excl. 0) | PHYSCHEM +0.044 to +0.070 (4/4 CI excl. 0) |
+   D3   ECFP     +0.048 to +0.074 (4/4 CI excl. 0) | MACCS    +0.037 to +0.054 (2/4 CI excl. 0) | PHYSCHEM -0.035 to +0.012 (0/4 CI excl. 0) |

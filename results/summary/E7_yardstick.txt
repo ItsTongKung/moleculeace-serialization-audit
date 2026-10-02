@@ -1,0 +1,37 @@
+======================================================================================================================
+E2  OPERATING REGIONS UNDER RULERS THAT ARE NOT MoleculeACE BRANCHES
+======================================================================================================================
+MCS subsample: up to 120 pairs per (dataset, category), seed 42, rdFMCS timeout 1s,
+               CompareElements / CompareOrderExact, ringMatchesRingOnly=True;
+               score = n_MCS_atoms / min(heavy_i, heavy_j).
+
+--- RULER: MACCS ---
+category                 n      q1  median      q3   <0.5% min-max
+------------------------------------------------------------------
+ecfp_admitted          766   0.962   0.983   1.000    0.0% 0.849-1.000
+scaf_only             6737   0.712   0.811   0.887    3.4% 0.224-1.000
+str_only             16603   0.815   0.885   0.935    0.0% 0.400-1.000
+
+--- RULER: MCS ---
+category                 n      q1  median      q3   <0.5% min-max
+------------------------------------------------------------------
+ecfp_admitted          766   0.637   0.959   1.000    2.1% 0.277-1.000
+scaf_only             2612   0.649   0.833   0.929   10.9% 0.250-1.000
+str_only              3311   0.800   0.923   0.968    1.5% 0.316-1.000
+
+======================================================================================================================
+ORDERING TEST  delta = median(scaf_only) - median(str_only), per ruler
+  delta < 0  => anonymised-graph branch sits FARTHER from the fingerprint-like operating region (claim HOLDS)
+  delta > 0  => ordering REVERSES (claim must be deleted)
+  Paired cluster bootstrap over the 30 datasets, B=4000, seed 42.
+======================================================================================================================
+  maccs     delta = -0.0739  95% CI [-0.1003, -0.0439]  dropped draws 0  -> HOLDS (delta<0, interval excludes 0)
+            per-dataset (equal weighting): negative in 23/30 datasets, mean -0.0567, median -0.0411
+  mcs       delta = -0.0897  95% CI [-0.1234, -0.0564]  dropped draws 0  -> HOLDS (delta<0, interval excludes 0)
+            per-dataset (equal weighting): negative in 27/30 datasets, mean -0.1026, median -0.0877
+
+NOTE: every ruler tested retains element identity and bond order, which branch (b) exists to discard,
+so all of them are expected to place branch-(b)-exclusive pairs low. The test is whether the ORDERING
+against the string branch survives, not whether the absolute level is fair to branch (b).
+
+total wall time 8.3 min

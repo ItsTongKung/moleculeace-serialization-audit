@@ -1,0 +1,40 @@
+====================================================================================================================
+E1  CROSS-SERIALIZATION / CROSS-TOOLKIT ARM
+====================================================================================================================
+toolkits: RDKit 2026.03.6 | Indigo 1.46.0.0-gb36d38f52-x86_64-linux-gnu-11.2.1 | Open Babel 3.1.0
+ARM B (ChEMBL canonical_smiles) DECLINED: the distributed files carry no ChEMBL identifier;
+      structure-based re-identification would introduce ambiguous entity matching.
+
+Identity discipline: a rewritten string is used only if RDKit canonical SMILES AND InChIKey both match
+the original molecule. Failures are QUARANTINED (shipped string retained) and never counted as label change.
+
+arm           quar_n   quar_%  strings_%   labels_%  Jaccard   cliffs      gain      loss  ctrlT/S
+--------------------------------------------------------------------------------------------------
+inchi_rt       18027   37.006       0.85      0.000    1.000    18800        22        58      0/0
+            RDKit InChI round-trip (IUPAC canonicalisation layer)
+            label change: median 0.000%  range 0.000-1.200%  molecule-weighted mean 0.164%
+            cliff count 18836 -> 18800 (-0.19%); gains exceed losses in 3/30 datasets
+            CLEAN SUBSET (zero quarantine): 0/30 datasets, label change median nan% (range nan-nan%)
+            mean SMILES length shipped 56.7 -> arm 56.7 chars
+
+indigo            58    0.119      98.24      8.982    0.759    17606      1666      2896      0/0
+            EPAM Indigo 1.46.0.0-gb36d38f52-x86_64-linux-gnu-11.2.1 canonical SMILES
+            label change: median 8.982%  range 3.010-16.250%  molecule-weighted mean 9.365%
+            cliff count 18836 -> 17606 (-6.53%); gains exceed losses in 4/30 datasets
+            CLEAN SUBSET (zero quarantine): 17/30 datasets, label change median 8.321% (range 6.016-16.250%)
+            mean SMILES length shipped 56.7 -> arm 59.5 chars
+
+openbabel         10    0.021      99.65      9.476    0.774    19068      2479      2247      0/0
+            Open Babel 3.1.0 canonical SMILES
+            label change: median 9.476%  range 2.736-13.936%  molecule-weighted mean 9.702%
+            cliff count 18836 -> 19068 (+1.23%); gains exceed losses in 20/30 datasets
+            CLEAN SUBSET (zero quarantine): 26/30 datasets, label change median 9.028% (range 2.736-13.936%)
+            mean SMILES length shipped 56.7 -> arm 56.8 chars
+
+POSITIVE CONTROL: total ECFP4 pair differences 0, anonymised-graph pair differences 0 (must be 0)
+
+INTERPRETATION KEY (fixed in the study protocol before running):
+  cross-toolkit change >= Kekule (5.23%)  -> practical concern STRENGTHENS
+  cross-toolkit change <  Kekule          -> narrow the practical claim; Kekule remains the practical result
+  cross-toolkit change ~ 0                -> retain the formal non-invariance result and state plainly
+                                             that the tested cross-toolkit routes show little empirical divergence

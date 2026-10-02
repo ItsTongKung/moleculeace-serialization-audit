@@ -1,0 +1,7 @@
+analysis,arm,model,definition,n_cliff,n_test,rmse_all,estimate,ci_lo,ci_hi,ci_status,contrast,rmse_S0,rmse_R0,rmse_R2,gap_D0,gap_D2,p_SVM,p_RF,p_GBM,p_KNN,holm_SVM,holm_RF,holm_GBM,holm_KNN,ratio_total,rt_lo,rt_hi,ratio_string,rs_lo,rs_hi,ratio_scaffold,rc_lo,rc_hi,n_partner_in,n_partner_out,gap_in,in_lo,in_hi,in_status,gap_out,out_lo,out_hi,out_status,stratum,n_non
+proximity,,SVM,,4.0,,,-0.1930531860612762,-0.4011364702740568,0.0959105191721245,includes 0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.7-0.8,2930.0
+proximity,,SVM,,15.0,,,0.106520139553116,-0.0499634629285121,0.2244962733739943,includes 0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.8-0.9,3733.0
+proximity,,SVM,,207.0,,,0.6695933391877268,0.5855320360800409,0.76648932194417,EXCLUDES 0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.9-1.0,898.0
+proximity,,RF,,4.0,,,-0.1733626943528586,-0.5461406622923833,-0.0486941124189961,EXCLUDES 0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.7-0.8,2930.0
+proximity,,RF,,15.0,,,0.0905971525843649,-0.0834557855890848,0.2122082784956077,includes 0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.8-0.9,3733.0
+proximity,,RF,,207.0,,,0.6895127946655832,0.5970576524739747,0.783164283523485,EXCLUDES 0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.9-1.0,898.0

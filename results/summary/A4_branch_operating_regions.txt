@@ -1,0 +1,37 @@
+============================================================================================================
+A-4  EFFECTIVE OPERATING REGION OF EACH SIMILARITY BRANCH, MEASURED ON A COMMON YARDSTICK (ECFP4 TANIMOTO)
+============================================================================================================
+All rows are CLIFF PAIRS (similarity criterion satisfied AND >10-fold potency difference).
+
+pair set                   n     min      p5      q1  median      q3     p95     max
+------------------------------------------------------------------------------------
+ecfp_admitted            766   0.900   0.901   0.915   0.935   0.965   1.000   1.000
+scaf_admitted          11867   0.054   0.269   0.490   0.638   0.756   0.908   1.000
+str_admitted           21644   0.257   0.486   0.608   0.694   0.768   0.868   1.000
+ecfp_only                 40   0.900   0.900   0.902   0.905   0.915   0.927   0.942
+scaf_only               6737   0.054   0.217   0.400   0.536   0.658   0.814   0.899
+str_only               16603   0.270   0.482   0.600   0.682   0.754   0.833   0.899
+all_cliffpairs         28569   0.054   0.370   0.566   0.667   0.755   0.867   1.000
+
+BRANCH SHARES OF THE 28569 CLIFF PAIRS:
+  admitted by ecfp                 766 (  2.7%)
+  admitted by scaf               11867 ( 41.5%)
+  admitted by str                21644 ( 75.8%)
+  ONLY      by ecfp                  40 (  0.1%)
+  ONLY      by scaf                6737 ( 23.6%)
+  ONLY      by str                16603 ( 58.1%)
+  admitted by >1 branch         5189 ( 18.2%)
+
+KEY NON-TAUTOLOGICAL COMPARISON --- the two non-fingerprint branches against each other:
+  generic-scaffold-only pairs: median ECFP4 0.536 (IQR 0.400-0.658), 42.2% below 0.5
+  SMILES-string-only pairs:    median ECFP4 0.682 (IQR 0.600-0.754), 6.3% below 0.5
+  ECFP4 branch (by construction >= 0.9): median 0.935
+
+  Neither non-fingerprint branch operates anywhere near 0.9 on the fingerprint scale.
+  string-only  spans 0.270-0.899; scaffold-only spans 0.054-0.899
+  pairs below ECFP4 0.5 admitted as 'similar at >= 0.9':  string branch 1051, scaffold branch 2842
+
+PER-DATASET medians (median across the 30 datasets):
+  ecfp_only        0.905 (range 0.900-0.922 over datasets)
+  scaf_only        0.603 (range 0.207-0.756 over datasets)
+  str_only         0.683 (range 0.591-0.725 over datasets)

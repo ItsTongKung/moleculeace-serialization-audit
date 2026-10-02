@@ -1,0 +1,18 @@
+==============================================================================================================
+E (cont.)  POOLED CLIFF PENALTY UNDER THE SIZE-CONSTRAINED D3 VARIANT (fixed-split relabelling design)
+==============================================================================================================
+  test compounds labelled: uncapped D3 5947 ; size-constrained D3 5171
+  SVM   D3_uncapped  penalty +0.0195  95% CI [-0.0198, +0.0628]  includes 0
+  SVM   D3_capped    penalty +0.0282  95% CI [-0.0063, +0.0640]  includes 0
+  RF    D3_uncapped  penalty +0.0092  95% CI [-0.0370, +0.0564]  includes 0
+  RF    D3_capped    penalty +0.0329  95% CI [-0.0055, +0.0719]  includes 0
+  GBM   D3_uncapped  penalty +0.0217  95% CI [-0.0239, +0.0710]  includes 0
+  GBM   D3_capped    penalty +0.0378  95% CI [-0.0010, +0.0794]  includes 0
+  KNN   D3_uncapped  penalty +0.0532  95% CI [-0.0033, +0.1141]  includes 0
+  KNN   D3_capped    penalty +0.0668  95% CI [+0.0165, +0.1187]  EXCLUDES 0
+
+  Reading: the size cap lowers D3 prevalence (5,947 -> 5,171 test compounds) and raises the point
+  estimate modestly. 1 of 4 capped intervals exclude zero (uncapped: 0 of 4).
+  The bottom rung of the ladder is therefore ROBUST for SVM, RF and GBM under both variants; the
+  only interval that excludes zero is KNN's, which is the column carrying the distance-tie
+  uncertainty quantified in E11_knnties, so no conclusion is drawn from it.

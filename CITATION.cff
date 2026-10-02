@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the preprint and the archived release."
+type: software
+title: "moleculeace-serialization-audit: code and data for 'SMILES serialization changes activity-cliff annotations in the MoleculeACE benchmark'"
+authors:
+  - family-names: Sriwicha
+    given-names: Phongsakon
+    email: phongsakon.sriw@mail.kmutt.ac.th
+    orcid: "https://orcid.org/0009-0001-0561-1076"
+    affiliation: "Department of Computer Engineering, Faculty of Engineering, King Mongkut's University of Technology Thonburi (KMUTT), Bangkok, Thailand"
+abstract: >-
+  Code, serialization-invariant activity-cliff labels, split assignments, result tables and
+  per-molecule predictions for an analysis of how SMILES serialization changes the activity-cliff
+  annotations of the MoleculeACE benchmark (upstream commit 7e6de0bd2968c56589c580f2a397f01c531ede26).
+keywords:
+  - activity cliffs
+  - MoleculeACE
+  - SMILES serialization
+  - benchmark reproducibility
+  - cheminformatics
+  - molecular machine learning
+license:
+  - MIT
+  - CC-BY-4.0
+version: "1.0.0"
+date-released: "2026-10-01"
+references:
+  - type: software
+    title: MoleculeACE
+    authors:
+      - family-names: van Tilborg
+        given-names: Derek
+      - family-names: Alenicheva
+        given-names: Alisa
+      - family-names: Grisoni
+        given-names: Francesca
+    repository-code: "https://github.com/molML/MoleculeACE"
+    commit: 7e6de0bd2968c56589c580f2a397f01c531ede26
+    license: MIT

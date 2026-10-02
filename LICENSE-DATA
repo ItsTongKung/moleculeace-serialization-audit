@@ -1,0 +1,18 @@
+Derived data in this repository are licensed under the Creative Commons Attribution 4.0
+International License (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/legalcode
+
+Copyright (c) 2026 Phongsakon Sriwicha
+
+Scope. CC BY 4.0 applies to the material produced by this study: the cliff-label annotations
+(columns D0_recomputed, D1_ecfp4_strict, D2_invariant, D3_mmp, D3_mmp_size_capped_13), the
+reconstructed and repaired split assignments, cluster identities and nearest-neighbor similarities,
+the split realizations, the result tables in results/, the figures and figure source data in
+figures/, and the per-molecule predictions in predictions/.
+
+Excluded upstream content. Columns that reproduce values distributed by MoleculeACE
+(https://github.com/molML/MoleculeACE, commit 7e6de0bd2968c56589c580f2a397f01c531ede26) -- smiles,
+y_pEC50_pKi, exp_mean_nM, cliff_mol_shipped, split_shipped, and the smiles/y_true arrays stored in
+prediction files -- are not licensed by this repository. They remain under the MoleculeACE license
+(MIT, Copyright (c) 2022 Derek van Tilborg) and, for the underlying bioactivity data, the ChEMBL
+license (CC BY-SA 3.0, https://creativecommons.org/licenses/by-sa/3.0/). Users must comply with
+those terms when reusing those columns.

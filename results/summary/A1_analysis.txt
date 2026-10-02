@@ -1,0 +1,128 @@
+======================================================================================================================
+A-1a  HEADLINE CLIFF PENALTY BY ARM  (own-complement; arm's own cliff definition)
+      S0 = shipped split, D0 labels   R0 = split reconstructed from D0   R2 = split reconstructed from D2, retrained
+======================================================================================================================
+arm   model def   n_cliff   n_test   RMSE_all    penalty                 95% CI
+S0    SVM   D0       3793     9802     0.6766    +0.1242   [+0.0855, +0.1591] EXCLUDES 0
+R0    SVM   D0       3791     9801     0.6752    +0.1278   [+0.0923, +0.1593] EXCLUDES 0
+R2    SVM   D2       1962     9801     0.6716    +0.1433   [+0.1002, +0.1845] EXCLUDES 0
+S0    RF    D0       3793     9802     0.7102    +0.1287   [+0.0943, +0.1607] EXCLUDES 0
+R0    RF    D0       3791     9801     0.7067    +0.1380   [+0.1023, +0.1718] EXCLUDES 0
+R2    RF    D2       1962     9801     0.6993    +0.1511   [+0.1118, +0.1888] EXCLUDES 0
+S0    GBM   D0       3793     9802     0.7023    +0.1319   [+0.0930, +0.1698] EXCLUDES 0
+R0    GBM   D0       3791     9801     0.7004    +0.1394   [+0.1030, +0.1762] EXCLUDES 0
+R2    GBM   D2       1962     9801     0.6907    +0.1598   [+0.1163, +0.2004] EXCLUDES 0
+S0    KNN   D0       3793     9802     0.7372    +0.1738   [+0.1300, +0.2125] EXCLUDES 0
+R0    KNN   D0       3791     9801     0.7347    +0.1739   [+0.1338, +0.2124] EXCLUDES 0
+R2    KNN   D2       1962     9801     0.7327    +0.1675   [+0.1196, +0.2099] EXCLUDES 0
+
+======================================================================================================================
+A-1b  PAIRED CONTRASTS  (bootstrapped directly; same resampled datasets in both conditions)
+======================================================================================================================
+PRIMARY  full repair      R2 - R0    SVM    delta = +0.0155  95% CI [-0.0143, +0.0432]  includes 0
+PRIMARY  full repair      R2 - R0    RF     delta = +0.0131  95% CI [-0.0180, +0.0423]  includes 0
+PRIMARY  full repair      R2 - R0    GBM    delta = +0.0204  95% CI [-0.0159, +0.0568]  includes 0
+PRIMARY  full repair      R2 - R0    KNN    delta = -0.0063  95% CI [-0.0477, +0.0291]  includes 0
+
+CONTROL  split drift      R0 - S0    SVM    delta = +0.0036  95% CI [-0.0083, +0.0169]  includes 0
+CONTROL  split drift      R0 - S0    RF     delta = +0.0092  95% CI [-0.0043, +0.0243]  includes 0
+CONTROL  split drift      R0 - S0    GBM    delta = +0.0075  95% CI [-0.0076, +0.0226]  includes 0
+CONTROL  split drift      R0 - S0    KNN    delta = +0.0001  95% CI [-0.0161, +0.0182]  includes 0
+
+BRIDGE   shipped->repair  R2 - S0    SVM    delta = +0.0192  95% CI [-0.0157, +0.0524]  includes 0
+BRIDGE   shipped->repair  R2 - S0    RF     delta = +0.0224  95% CI [-0.0131, +0.0560]  includes 0
+BRIDGE   shipped->repair  R2 - S0    GBM    delta = +0.0278  95% CI [-0.0155, +0.0670]  includes 0
+BRIDGE   shipped->repair  R2 - S0    KNN    delta = -0.0062  95% CI [-0.0564, +0.0357]  includes 0
+
+======================================================================================================================
+A-1c  OVERALL TEST RMSE BY ARM  (does repairing the benchmark change how hard it is overall?)
+======================================================================================================================
+SVM   RMSE_all  S0=0.6766  R0=0.6752  R2=0.6716 | R2-R0 = -0.0036 [-0.0214,+0.0152] includes 0 | R0-S0 = -0.0014 [-0.0089,+0.0058] includes 0
+RF    RMSE_all  S0=0.7102  R0=0.7067  R2=0.6993 | R2-R0 = -0.0075 [-0.0247,+0.0112] includes 0 | R0-S0 = -0.0035 [-0.0119,+0.0048] includes 0
+GBM   RMSE_all  S0=0.7023  R0=0.7004  R2=0.6907 | R2-R0 = -0.0097 [-0.0256,+0.0075] includes 0 | R0-S0 = -0.0019 [-0.0095,+0.0061] includes 0
+KNN   RMSE_all  S0=0.7372  R0=0.7347  R2=0.7327 | R2-R0 = -0.0020 [-0.0248,+0.0242] includes 0 | R0-S0 = -0.0025 [-0.0136,+0.0071] includes 0
+
+======================================================================================================================
+A-1d  FIXED-SPLIT RELABELLING  (shipped split and shipped predictions, re-scored under D2)
+      This is the estimand of the previous draft.  It is NOT the full-repair estimand above.
+======================================================================================================================
+SVM    gap(D0)=+0.1242  gap(D2)=+0.1248  delta = +0.0006  95% CI [-0.0276, +0.0280]  includes 0
+RF     gap(D0)=+0.1287  gap(D2)=+0.1332  delta = +0.0044  95% CI [-0.0174, +0.0267]  includes 0
+GBM    gap(D0)=+0.1319  gap(D2)=+0.1317  delta = -0.0002  95% CI [-0.0255, +0.0260]  includes 0
+KNN    gap(D0)=+0.1738  gap(D2)=+0.1631  delta = -0.0106  95% CI [-0.0383, +0.0161]  includes 0
+  secondary per-dataset Wilcoxon (D0 vs D2 gaps, shipped split): SVM p=0.8236 (Holm 1.000), RF p=0.7457 (Holm 1.000), GBM p=0.9032 (Holm 1.000), KNN p=0.6850 (Holm 1.000) | surviving Holm: 0/4
+
+======================================================================================================================
+A-1e  DEFINITIONAL LADDER on the shipped benchmark (arm S0, own-complement baselines)
+======================================================================================================================
+SVM    D3: +0.019 [-0.020,+0.063] (n=5947)  D0: +0.124 [+0.085,+0.159] (n=3793)  D2: +0.125 [+0.072,+0.174] (n=1966)  D1: +0.377 [+0.293,+0.464] (n=228) 
+RF     D3: +0.009 [-0.037,+0.056] (n=5947)  D0: +0.129 [+0.094,+0.161] (n=3793)  D2: +0.133 [+0.089,+0.175] (n=1966)  D1: +0.368 [+0.279,+0.452] (n=228) 
+GBM    D3: +0.022 [-0.024,+0.071] (n=5947)  D0: +0.132 [+0.093,+0.170] (n=3793)  D2: +0.132 [+0.086,+0.180] (n=1966)  D1: +0.370 [+0.284,+0.460] (n=228) 
+KNN    D3: +0.053 [-0.003,+0.114] (n=5947)  D0: +0.174 [+0.130,+0.212] (n=3793)  D2: +0.163 [+0.116,+0.210] (n=1966)  D1: +0.385 [+0.284,+0.469] (n=228) 
+  ratio decomposition (SVM..KNN): D1/D0 total, string step D0->D2, scaffold step D2->D1
+   SVM   total 3.04x [2.35,4.07] | string step 1.00x [0.75,1.22] | scaffold step 3.02x [2.31,4.63]
+   RF    total 2.86x [2.23,3.69] | string step 1.03x [0.85,1.20] | scaffold step 2.76x [2.17,3.70]
+   GBM   total 2.81x [2.22,3.68] | string step 1.00x [0.80,1.20] | scaffold step 2.81x [2.16,3.98]
+   KNN   total 2.22x [1.62,2.99] | string step 0.94x [0.78,1.10] | scaffold step 2.36x [1.72,3.28]
+
+======================================================================================================================
+A-3  PARTNER LOCATION: is the penalty concentrated among compounds whose >10-fold partner is in TRAIN?
+     Reported: each subgroup vs the definition's non-cliff complement, AND the direct
+     subgroup DIFFERENCE (interaction), bootstrapped as a single paired quantity.
+======================================================================================================================
+
+  --- definition D1, arm S0 --- cliff test compounds: partner IN train n=198 (86.8%), NOT in train n=30 (13.2%)
+    SVM   partner IN +0.4291 [+0.3442,+0.5260] EXCLUDES 0 | NOT in -0.0706 [-0.1447,+0.0154] includes 0 | INTERACTION +0.4998 [+0.3892,+0.6189] EXCLUDES 0
+    RF    partner IN +0.4214 [+0.3317,+0.5120] EXCLUDES 0 | NOT in -0.0935 [-0.2120,+0.0257] includes 0 | INTERACTION +0.5149 [+0.3621,+0.6758] EXCLUDES 0
+    GBM   partner IN +0.4206 [+0.3261,+0.5187] EXCLUDES 0 | NOT in -0.0558 [-0.1898,+0.0654] includes 0 | INTERACTION +0.4763 [+0.3049,+0.6730] EXCLUDES 0
+    KNN   partner IN +0.4397 [+0.3407,+0.5237] EXCLUDES 0 | NOT in -0.0814 [-0.1859,+0.0161] includes 0 | INTERACTION +0.5211 [+0.3869,+0.6757] EXCLUDES 0
+
+  --- definition D1, arm R0 --- cliff test compounds: partner IN train n=210 (88.2%), NOT in train n=28 (11.8%)
+    SVM   partner IN +0.4033 [+0.3172,+0.4956] EXCLUDES 0 | NOT in -0.0758 [-0.1531,+0.0024] includes 0 | INTERACTION +0.4791 [+0.3836,+0.5857] EXCLUDES 0
+    RF    partner IN +0.3976 [+0.3091,+0.4812] EXCLUDES 0 | NOT in -0.1402 [-0.2534,-0.0401] EXCLUDES 0 | INTERACTION +0.5378 [+0.4135,+0.6677] EXCLUDES 0
+    GBM   partner IN +0.3936 [+0.3131,+0.4771] EXCLUDES 0 | NOT in -0.0543 [-0.2215,+0.0676] includes 0 | INTERACTION +0.4479 [+0.2856,+0.6245] EXCLUDES 0
+    KNN   partner IN +0.4164 [+0.3179,+0.4985] EXCLUDES 0 | NOT in -0.1173 [-0.2513,+0.0030] includes 0 | INTERACTION +0.5337 [+0.3918,+0.7045] EXCLUDES 0
+
+  --- definition D2, arm R2 --- cliff test compounds: partner IN train n=1768 (90.1%), NOT in train n=194 (9.9%)
+    SVM   partner IN +0.1563 [+0.1106,+0.2002] EXCLUDES 0 | NOT in +0.0136 [-0.0730,+0.0925] includes 0 | INTERACTION +0.1427 [+0.0462,+0.2433] EXCLUDES 0
+    RF    partner IN +0.1591 [+0.1167,+0.1985] EXCLUDES 0 | NOT in +0.0748 [-0.0128,+0.1561] includes 0 | INTERACTION +0.0843 [-0.0087,+0.1796] includes 0
+    GBM   partner IN +0.1690 [+0.1237,+0.2113] EXCLUDES 0 | NOT in +0.0705 [-0.0167,+0.1525] includes 0 | INTERACTION +0.0985 [+0.0159,+0.1897] EXCLUDES 0
+    KNN   partner IN +0.1812 [+0.1305,+0.2255] EXCLUDES 0 | NOT in +0.0317 [-0.0554,+0.1336] includes 0 | INTERACTION +0.1495 [+0.0414,+0.2387] EXCLUDES 0
+
+  --- definition D0, arm S0 --- cliff test compounds: partner IN train n=3457 (91.1%), NOT in train n=336 (8.9%)
+    SVM   partner IN +0.1382 [+0.0973,+0.1756] EXCLUDES 0 | NOT in -0.0389 [-0.0956,+0.0093] includes 0 | INTERACTION +0.1771 [+0.1183,+0.2417] EXCLUDES 0
+    RF    partner IN +0.1408 [+0.1044,+0.1756] EXCLUDES 0 | NOT in -0.0084 [-0.0865,+0.0592] includes 0 | INTERACTION +0.1492 [+0.0781,+0.2374] EXCLUDES 0
+    GBM   partner IN +0.1440 [+0.1034,+0.1850] EXCLUDES 0 | NOT in -0.0060 [-0.0737,+0.0495] includes 0 | INTERACTION +0.1501 [+0.0880,+0.2252] EXCLUDES 0
+    KNN   partner IN +0.1870 [+0.1416,+0.2288] EXCLUDES 0 | NOT in +0.0231 [-0.0690,+0.1108] includes 0 | INTERACTION +0.1639 [+0.0694,+0.2596] EXCLUDES 0
+
+  --- definition D0, arm R0 --- cliff test compounds: partner IN train n=3440 (90.7%), NOT in train n=351 (9.3%)
+    SVM   partner IN +0.1422 [+0.1049,+0.1770] EXCLUDES 0 | NOT in -0.0308 [-0.0927,+0.0320] includes 0 | INTERACTION +0.1730 [+0.0999,+0.2421] EXCLUDES 0
+    RF    partner IN +0.1500 [+0.1104,+0.1876] EXCLUDES 0 | NOT in +0.0089 [-0.0749,+0.0886] includes 0 | INTERACTION +0.1410 [+0.0507,+0.2379] EXCLUDES 0
+    GBM   partner IN +0.1528 [+0.1138,+0.1931] EXCLUDES 0 | NOT in -0.0067 [-0.0754,+0.0596] includes 0 | INTERACTION +0.1596 [+0.0814,+0.2409] EXCLUDES 0
+    KNN   partner IN +0.1868 [+0.1444,+0.2282] EXCLUDES 0 | NOT in +0.0345 [-0.0548,+0.1263] includes 0 | INTERACTION +0.1523 [+0.0531,+0.2471] EXCLUDES 0
+
+======================================================================================================================
+A-3b  PROXIMITY-MATCHED CONTROL (strata of nearest-neighbour ECFP4 similarity to the training set), arm S0
+======================================================================================================================
+  nn_train median: D1 cliffs 0.943 vs non-cliffs 0.794
+  SVM   nn_train [0.7,0.8): -0.1931 [-0.4011,+0.0959] includes 0 (n_cliff=4, n_non=2930)
+  SVM   nn_train [0.8,0.9): +0.1065 [-0.0500,+0.2245] includes 0 (n_cliff=15, n_non=3733)
+  SVM   nn_train [0.9,1.0): +0.6696 [+0.5855,+0.7665] EXCLUDES 0 (n_cliff=207, n_non=898)
+  RF    nn_train [0.7,0.8): -0.1734 [-0.5461,-0.0487] EXCLUDES 0 (n_cliff=4, n_non=2930)
+  RF    nn_train [0.8,0.9): +0.0906 [-0.0835,+0.2122] includes 0 (n_cliff=15, n_non=3733)
+  RF    nn_train [0.9,1.0): +0.6895 [+0.5971,+0.7832] EXCLUDES 0 (n_cliff=207, n_non=898)
+
+======================================================================================================================
+A-3c  CHEMISTRY-FREE NULL PREDICTOR (per-dataset training mean), arm S0
+======================================================================================================================
+  train-mean predictor, D1 penalty = -0.0151 95% CI [-0.1590, +0.1045]  includes 0
+  train-mean predictor, D2 penalty = +0.0080 95% CI [-0.0438, +0.0660]  includes 0
+  train-mean predictor, D0 penalty = +0.0146 95% CI [-0.0381, +0.0651]  includes 0
+
+======================================================================================================================
+A-1f  MODEL RANKING STABILITY (per-dataset cliff-RMSE rank, mean over datasets)
+======================================================================================================================
+  S0 (D0): SVM=1.57  RF=2.30  GBM=2.33  KNN=3.80
+  R0 (D0): SVM=1.53  RF=2.37  GBM=2.30  KNN=3.80
+  R2 (D2): SVM=1.50  RF=2.57  GBM=2.57  KNN=3.37
+  Spearman(mean rank) S0 vs R2 = 0.949 ; R0 vs R2 = 0.949

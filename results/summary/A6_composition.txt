@@ -1,0 +1,20 @@
+========================================================================================================
+A-6  COMPOUND-LEVEL CRITERION REACHABILITY AND THE SIZE MECHANISM
+========================================================================================================
+  cliff compounds reachable by ECFP4 Tanimoto >= 0.9        median   6.39% (IQR 1.66-7.43)
+  cliff compounds reachable by generic-scaffold >= 0.9      median  49.89% (IQR 42.21-56.68)
+  cliff compounds reachable by SMILES-Levenshtein >= 0.9    median  86.30% (IQR 80.39-89.70)
+  cliff labels lost if the string criterion is removed: median 49.44% (IQR 42.83-57.51)
+  compounds relabelled D0 -> D2: median 17.05% (range 3.56-28.90)
+  cliff pairs with ECFP4 similarity < 0.5, admitted as 'similar at >= 0.9': 4113 of 28569 (14.4%)
+
+SIZE MECHANISM: mean SMILES length of Levenshtein-ADMITTED vs NOT-admitted pairs, within ECFP4 bins
+  ECFP4 [0.0,0.5): admitted mean len   50.0 (n=    4011) | not-admitted   57.4 (n= 51749520) | diff   -7.4
+  ECFP4 [0.5,0.6): admitted mean len   54.4 (n=   12586) | not-admitted   62.3 (n=   439514) | diff   -7.8
+  ECFP4 [0.6,0.7): admitted mean len   57.2 (n=   24465) | not-admitted   64.7 (n=   234787) | diff   -7.5
+  ECFP4 [0.7,0.8): admitted mean len   61.0 (n=   36382) | not-admitted   68.0 (n=   107441) | diff   -7.0
+  ECFP4 [0.8,0.9): admitted mean len   66.1 (n=   20167) | not-admitted   70.4 (n=    18458) | diff   -4.3
+
+cliff rate by heavy-atom-count quartile (median across 30 datasets):
+  D0 (as shipped): Q1=35.0%  Q2=40.2%  Q3=39.5%  Q4=36.0%
+  D2 (invariant):  Q1=19.0%  Q2=18.6%  Q3=15.3%  Q4=18.4%

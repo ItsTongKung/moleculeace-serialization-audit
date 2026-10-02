@@ -1,0 +1,8 @@
+====================================================================================================
+A-2b  RANDOMISED SMILES, PER-MOLECULE SEEDING (seed_i = s*1000003 + i, s in 42..51)
+====================================================================================================
+positive control (ECFP4 + generic-scaffold pair diffs, first replicate of each dataset): 0 (must be 0)
+labels flipped median 17.05% (range 3.56-28.90%)  compound-weighted mean 18.61%
+Jaccard median 0.506 (range 0.377-0.725)
+per-dataset SD across the ten seeds: median 0.047 pp, max 0.170 pp
+total cliff compounds: shipped 18836 -> randomised mean 9786

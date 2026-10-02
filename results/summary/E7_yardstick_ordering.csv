@@ -1,0 +1,3 @@
+ruler,delta_median,ci_lo,ci_hi,B,dropped_draws,verdict,ci_status
+maccs,-0.07392513751983643,-0.10030331313610077,-0.04394816905260085,4000,0,"HOLDS (delta<0, interval excludes 0)",EXCLUDES 0
+mcs,-0.08974361419677734,-0.12335389852523804,-0.056360721588134766,4000,0,"HOLDS (delta<0, interval excludes 0)",EXCLUDES 0

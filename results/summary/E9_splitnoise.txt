@@ -1,0 +1,30 @@
+==========================================================================================================================
+E4  MAGNITUDE-MATCHED SPLIT-REALISATION CONTROL  (D0 labels FIXED; 24 split realisations, random_state 1000..1023)
+==========================================================================================================================
+PERTURBATION MAGNITUDE (calibration against the primary repair)
+  membership change vs the R0 reference split: mean 31.99%, median 32.02%, range 27.23-35.82% over 24 realisations x 30 datasets
+  per-dataset mean: median 31.96%, range 31.63-32.60%
+  independent-redraw ceiling 2p(1-p) using each realisation's own test fraction: mean 32.21%
+  PRIMARY REPAIR carries a median 31.3% membership change (D2 vs R0 split) -- see E3_cache_summary.csv
+  => this control is magnitude-MATCHED if the figure above is close to 31%; the manuscript's
+     R0-S0 control was 4.28% and therefore was not.
+
+POOLED D0 CLIFF PENALTY BY REALISATION  (own-complement, pooled over 30 datasets, same estimator as Table 1)
+model      mean        SD       min       max p2.5-97.5      R0 ref
+-------------------------------------------------------------------
+SVM     +0.1253    0.0124   +0.0956   +0.1499  +0.1009/+0.1444
+
+SPLIT-NOISE-ONLY ANALOGUE OF THE PRIMARY CONTRAST
+  |difference| in pooled penalty between two same-definition split realisations:
+  model      mean|d|    median|d|       p95|d|   full range
+  SVM         0.0140       0.0115       0.0345       0.0543
+
+CALIBRATION AGAINST THE OBSERVED PRIMARY CONTRAST (R2-R0 from A1_analysis_results.csv):
+  SVM   observed R2-R0 = +0.0155 ; split-noise p95|d| = 0.0345  -> observed effect is WITHIN the split-noise band (split realisation of matched magnitude could produce it)
+
+total wall time 0.1 min
+
+INTERPRETATION (fixed before the run): if the observed R2-R0 shift lies inside the distribution of
+differences produced by same-definition split re-draws of comparable membership perturbation, then
+split-realisation variability alone can account for a shift of the observed size, and the primary
+contrast must not be attributed to the cliff definition.  This is reported whichever way it falls.

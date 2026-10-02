@@ -1,0 +1,15 @@
+
+==========================================================================================================================
+E  D3 SENSITIVITY: size-constrained MMP variant, fragmentation failures, stereochemistry
+==========================================================================================================================
+  size cap: variable fragment <= 13 heavy atoms (pre-declared)
+  prevalence: D3 as reported 60.7% of compounds -> size-constrained 53.2%
+  fragmentation diagnostics (totals over 30 datasets):
+    molecules yielding NO usable single-cut fragment pair: 877 (1.80% of 48714)
+    FragmentMol raised an exception: 0 molecules
+    fragmented but every cut exceeded the size cap: 4 molecules
+  stereochemistry: 16706 of 48714 shipped SMILES carry a stereocentre marker (34.3%);
+    core matching uses Chem.MolToSmiles on the re-parsed core, which RETAINS stereochemistry, so
+    two cores differing only in configuration are NOT matched. MoleculeACE's own curation called
+    split_data(remove_stereo=True), so stereochemical siblings are absent from the shipped files.
+  [6.7 min]

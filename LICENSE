@@ -1,0 +1,5 @@
+This repository is distributed under two licenses:
+
+  * Code (src/, scripts/, reproduce.py): MIT License -- see LICENSE-CODE.
+  * Derived data (labels/, splits/, predictions/, results/, figures/): CC BY 4.0 -- see LICENSE-DATA,
+    which also lists the upstream MoleculeACE/ChEMBL content that is excluded from that grant.

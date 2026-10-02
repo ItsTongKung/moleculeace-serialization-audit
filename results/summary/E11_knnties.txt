@@ -1,0 +1,48 @@
+======================================================================================================================
+F  KNN DISTANCE-TIE SENSITIVITY
+======================================================================================================================
+Published KNN hyperparameters: metric=euclidean, weights=distance, k per dataset (median k=5).
+Features: 1024-bit BINARY ECFP4, so squared Euclidean distance is the integer Hamming distance.
+
+TIE EXPOSURE (test compounds whose k-th and (k+1)-th neighbours are exactly equidistant):
+  arm S0: mean 33.2%, median 32.3%, range 15.9-71.4% of test compounds
+  arm R0: mean 33.5%, median 32.7%, range 15.9-71.4% of test compounds
+  arm R2: mean 33.6%, median 32.0%, range 20.2-75.2% of test compounds
+  pooled over all arms: mean 33.4% of test compounds sit on a tie boundary
+
+PREDICTION DIVERGENCE BETWEEN NEIGHBOUR-SEARCH BACKENDS (same versions, same data):
+  maximum |prediction difference| over all dataset x arm cells: 1.3172 log units
+  mean over cells of the per-cell maximum: 0.6747
+  cells in which brute and ball_tree disagree on >=1 compound: 90 of 90
+
+FEATURE-DTYPE LEVER (identical backend 'brute', identical hyperparameters; uint8 vs float64 features):
+  cells where the two dtypes give different predictions: 90 of 90
+  maximum |prediction difference| attributable to dtype alone: 1.3172 log units
+  arm S0 pooled penalty: uint8 +0.1738  float64 +0.1704  (difference -0.0034)
+  arm R0 pooled penalty: uint8 +0.1739  float64 +0.1690  (difference -0.0049)
+  arm R2 pooled penalty: uint8 +0.1675  float64 +0.1741  (difference +0.0066)
+  PRIMARY CONTRAST R2-R0: uint8 -0.0063   float64 +0.0051
+
+POOLED CLIFF PENALTY AND OVERALL RMSE BY BACKEND (own-complement, pooled over 30 datasets)
+  arm  quantity           brute    ball_tree      kd_tree     spread
+  S0   penalty           0.1738       0.1712       0.1718     0.0026
+  S0   RMSE_all          0.7372       0.7381       0.7367     0.0014
+  R0   penalty           0.1739       0.1718       0.1744     0.0026
+  R0   RMSE_all          0.7347       0.7352       0.7344     0.0008
+  R2   penalty           0.1675       0.1729       0.1733     0.0057
+  R2   RMSE_all          0.7327       0.7338       0.7334     0.0011
+
+PRIMARY CONTRAST R2 - R0 UNDER EACH BACKEND (the quantity whose sign the paper declines to claim):
+  brute      R2-R0 = -0.0063
+  ball_tree  R2-R0 = +0.0011
+  kd_tree    R2-R0 = -0.0011
+
+CONCLUSION FOR THE MANUSCRIPT
+  The KNN column is not bit-reproducible across machines at fixed library versions, because the
+  published hyperparameters do not determine the neighbourhood when distances tie, and ties are
+  pervasive on binary fingerprints under a Euclidean metric. The spread above is the honest
+  uncertainty on every KNN figure; it is of the same order as the primary contrast itself, so no
+  KNN-specific direction may be claimed. SVM and GBM reproduced bit-identically and RF to within
+  5.4e-4 RMSE, so this is a KNN-specific limitation, not a general failure of the pipeline.
+  It is also an instance of the paper's own thesis: a benchmark contract that omits an
+  implementation detail leaves the reported number under-determined.

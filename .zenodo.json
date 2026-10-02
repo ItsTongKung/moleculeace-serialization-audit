@@ -1,0 +1,22 @@
+{
+  "title": "moleculeace-serialization-audit: code and data for \"SMILES serialization changes activity-cliff annotations in the MoleculeACE benchmark\"",
+  "upload_type": "software",
+  "description": "<p>Code, serialization-invariant activity-cliff label sets, split assignments (including 24 same-definition split realizations), analysis result tables, figure source data and per-molecule test predictions of every fitted model for the study <em>SMILES serialization changes activity-cliff annotations in the MoleculeACE benchmark</em>.</p><p>The study holds the molecules, potencies, thresholds and code of the MoleculeACE benchmark (molML/MoleculeACE, commit 7e6de0bd2968c56589c580f2a397f01c531ede26) fixed and varies only the SMILES serialization of the same molecules. Re-serialization with Indigo and Open Babel changed a median of 8.98% and 9.48% of compound labels; the graph-derived criteria were invariant. The release allows MoleculeACE to be re-evaluated under any of four cliff definitions without retraining.</p><p>Licenses: code (src/, scripts/, reproduce.py) under MIT; derived data (labels/, splits/, predictions/, results/, figures/) under CC BY 4.0. Columns reproduced from MoleculeACE (SMILES, potencies, shipped labels and split) remain under the upstream MoleculeACE (MIT) and ChEMBL (CC BY-SA 3.0) terms; see LICENSE-DATA. MoleculeACE itself is not redistributed; reproduce.py retrieves it from the audited commit.</p>",
+  "creators": [
+    {
+      "name": "Sriwicha, Phongsakon",
+      "affiliation": "Department of Computer Engineering, Faculty of Engineering, King Mongkut's University of Technology Thonburi (KMUTT), Bangkok, Thailand",
+      "orcid": "0009-0001-0561-1076"
+    }
+  ],
+  "keywords": ["activity cliffs", "MoleculeACE", "SMILES serialization", "benchmark reproducibility", "measurement validity", "molecular machine learning", "cheminformatics", "QSAR"],
+  "license": "MIT",
+  "access_right": "open",
+  "language": "eng",
+  "notes": "Derived data are licensed CC BY 4.0 (LICENSE-DATA); code is licensed MIT (LICENSE-CODE). No external funding was received.",
+  "related_identifiers": [
+    {"identifier": "https://github.com/molML/MoleculeACE/tree/7e6de0bd2968c56589c580f2a397f01c531ede26", "relation": "isDerivedFrom", "resource_type": "software"},
+    {"identifier": "10.1021/acs.jcim.2c01073", "relation": "references", "resource_type": "publication-article"},
+    {"identifier": "10.1021/acs.jcim.3c01576", "relation": "references", "resource_type": "publication-article"}
+  ]
+}

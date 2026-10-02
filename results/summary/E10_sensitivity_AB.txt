@@ -1,0 +1,48 @@
+==========================================================================================================================
+A  INFERENCE SENSITIVITY: BCa vs percentile cluster-bootstrap intervals (B=4000, seed 42)
+==========================================================================================================================
+quantity                           model      point        percentile 95% CI               BCa 95% CI       z0    accel
+PRIMARY R2-R0                      SVM      +0.0155  [-0.0143, +0.0432]  [-0.0145, +0.0430]   -0.015    0.001
+PRIMARY R2-R0                      RF       +0.0131  [-0.0180, +0.0423]  [-0.0209, +0.0398]   -0.031   -0.023
+PRIMARY R2-R0                      GBM      +0.0204  [-0.0159, +0.0568]  [-0.0166, +0.0559]   -0.001   -0.008
+PRIMARY R2-R0                      KNN      -0.0063  [-0.0477, +0.0291]  [-0.0503, +0.0277]   -0.027   -0.012
+D1 penalty (arm S0)                SVM      +0.3772  [+0.2934, +0.4638]  [+0.3044, +0.4894]    0.089    0.048
+D1 penalty (arm S0)                RF       +0.3679  [+0.2786, +0.4521]  [+0.2895, +0.4640]    0.082    0.028
+D1 penalty (arm S0)                GBM      +0.3702  [+0.2843, +0.4598]  [+0.2973, +0.4792]    0.080    0.047
+D1 penalty (arm S0)                KNN      +0.3851  [+0.2842, +0.4686]  [+0.2982, +0.4788]    0.074    0.031
+D0 penalty (arm S0)                SVM      +0.1242  [+0.0855, +0.1591]  [+0.0863, +0.1595]    0.031   -0.010
+D0 penalty (arm S0)                RF       +0.1287  [+0.0943, +0.1607]  [+0.0950, +0.1616]    0.032   -0.004
+D0 penalty (arm S0)                GBM      +0.1319  [+0.0930, +0.1698]  [+0.0940, +0.1709]    0.038   -0.002
+D0 penalty (arm S0)                KNN      +0.1738  [+0.1300, +0.2125]  [+0.1292, +0.2119]   -0.003   -0.010
+
+  verdicts changing between percentile and BCa: 0 of 12
+
+A2  EMPTY-SUBGROUP DROPPED-DRAW COUNTS for small-stratum estimates
+    (a nonzero count means the interval is CONDITIONAL on the subgroup being represented)
+    SVM   nn_train [0.7,0.8)  n_cliff=   4 n_non= 2930  -0.1931 [-0.4011,+0.0959]  dropped 152/4000 (3.8%) CONDITIONAL
+    SVM   nn_train [0.8,0.9)  n_cliff=  15 n_non= 3733  +0.1065 [-0.0500,+0.2245]  dropped 0/4000 (0.0%) 
+    SVM   nn_train [0.9,1.0)  n_cliff= 207 n_non=  898  +0.6696 [+0.5855,+0.7665]  dropped 0/4000 (0.0%) 
+    RF    nn_train [0.7,0.8)  n_cliff=   4 n_non= 2930  -0.1734 [-0.5461,-0.0487]  dropped 152/4000 (3.8%) CONDITIONAL
+    RF    nn_train [0.8,0.9)  n_cliff=  15 n_non= 3733  +0.0906 [-0.0835,+0.2122]  dropped 0/4000 (0.0%) 
+    RF    nn_train [0.9,1.0)  n_cliff= 207 n_non=  898  +0.6895 [+0.5971,+0.7832]  dropped 0/4000 (0.0%) 
+    SVM   S0/D1 partner NOT in train  -0.0706 [-0.1447,+0.0154]  dropped 0/4000 
+    SVM   R2/D2 partner NOT in train  +0.0136 [-0.0730,+0.0925]  dropped 0/4000 
+    RF    S0/D1 partner NOT in train  -0.0935 [-0.2120,+0.0257]  dropped 0/4000 
+    RF    R2/D2 partner NOT in train  +0.0748 [-0.0128,+0.1561]  dropped 0/4000 
+    GBM   S0/D1 partner NOT in train  -0.0558 [-0.1898,+0.0654]  dropped 0/4000 
+    GBM   R2/D2 partner NOT in train  +0.0705 [-0.0167,+0.1525]  dropped 0/4000 
+    KNN   S0/D1 partner NOT in train  -0.0814 [-0.1859,+0.0161]  dropped 0/4000 
+    KNN   R2/D2 partner NOT in train  +0.0317 [-0.0554,+0.1336]  dropped 0/4000 
+
+==========================================================================================================================
+B  SPLIT-AGREEMENT CALIBRATION  (raw agreement has a high floor; report Jaccard, kappa and a chance baseline)
+==========================================================================================================================
+  R0 arm (stratified on our RECOMPUTED D0) vs the shipped split column:
+    exact in 18/30 datasets; raw agreement median 100.00% (min 77.87%)
+    all-train floor: mean 79.83%  |  chance raw agreement at observed marginals: mean 67.79%
+    test-set Jaccard: median 1.000 (min 0.292)  |  Cohen's kappa: median 1.000 (min 0.313)
+    -> kappa and Jaccard are chance-corrected and therefore the figures to quote; raw agreement is
+       not interpretable against zero.
+  NOTE: the SEPARATE quantity 'faithful upstream call stratified on the shipped cliff_mol column'
+        is measured by 02_splitrepro.py (E2_split_reproduction.csv) and is not the same statistic.
+        shipped-label reproduction (agree_default_arpack): exact in 19/30, median 100.00%

@@ -1,0 +1,15 @@
+# local environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# upstream checkout and regenerated outputs
+external/
+outputs/
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

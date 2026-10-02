@@ -1,0 +1,10 @@
+====================================================================================================
+E1  FIDELITY GATE  (vectorised primitives vs upstream MoleculeACE reference)
+====================================================================================================
+[0] rapidfuzz normalized_similarity == 1 - pyLevenshtein/max(len): mismatches = 0/5000
+[1] CHEMBL2835_Ki    n=  615 | maxabs T/S/L = 2.96e-08/2.94e-08/2.95e-08 | binarised pair diffs T/S/L = 0/0/0 | upstream-vs-ours labels 615/615 | ours-vs-shipped 615/615 | upstream-vs-shipped 615/615 [6s]
+[1] CHEMBL2047_EC50  n=  631 | maxabs T/S/L = 2.95e-08/2.93e-08/2.96e-08 | binarised pair diffs T/S/L = 0/0/0 | upstream-vs-ours labels 631/631 | ours-vs-shipped 631/631 | upstream-vs-shipped 631/631 [5s]
+[1] CHEMBL1871_Ki    n=  659 | maxabs T/S/L = 2.96e-08/2.95e-08/2.97e-08 | binarised pair diffs T/S/L = 0/0/0 | upstream-vs-ours labels 659/659 | ours-vs-shipped 659/659 | upstream-vs-shipped 659/659 [5s]
+[2] upstream moleculeace_similarity max value = 1 (1 => numpy bool '+' is logical OR, so 'sim == 1' in find_cliffs() is a true disjunction); disagreements vs (T|S|L) = 0
+
+FIDELITY GATE PASSED

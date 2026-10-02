@@ -1,0 +1,10 @@
+====================================================================================================
+A-2  SERIALIZATION INVARIANCE  (explicit seeds 42,43,44,45,46,47,48,49,50,51)
+====================================================================================================
+identity verification: 0 failures across all rewrites and seeds (must be 0)
+POSITIVE CONTROLS: ECFP4 pair diffs total=0, generic-scaffold pair diffs total=0 (must be 0)
+
+ROUND-TRIP  strings changed median 1.32%  ->  labels flipped median 0.000% (max 0.533%)  Jaccard median 1.0000
+KEKULE      strings changed median 99.68%  ->  labels flipped median 5.23% (range 2.05-10.47%)  Jaccard median 0.860; total cliffs 18836 -> 19643 (+4.3%)
+RANDOMISED  labels flipped median 14.69% (range 2.87-25.45%)  compound-weighted mean 16.35%  Jaccard median 0.555 (range 0.432-0.766)
+            per-dataset SD across the ten seeds: median 0.346 pp, max 0.839 pp; flipped in >=1 seed median 18.11%

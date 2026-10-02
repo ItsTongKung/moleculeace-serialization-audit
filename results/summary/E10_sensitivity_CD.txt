@@ -1,0 +1,30 @@
+
+==========================================================================================================================
+C  KEKULE MECHANISM: is it a string-length effect, and did the atom output order change too?
+==========================================================================================================================
+  SMILES length: mean 56.7 -> 63.7 chars (mean per-molecule change +7.0 chars, +13.3%);
+                 median 54.5 -> 63.0; a longer string in a mean 98.1% of molecules
+  ATOM OUTPUT ORDER changed in a mean 80.85% of molecules (median 79.12%, max 98.04%)
+  per-dataset string-length inflation (%) vs cliff-count gain: Pearson r=0.181 (p=0.3397), Spearman rho=0.129 (p=0.4975)
+  per-dataset mean aromatic rings per molecule vs cliff-count gain: Pearson r=0.241 (p=0.1999), Spearman rho=0.034 (p=0.8564)
+  per-dataset string-length inflation vs LABEL CHANGE rate: Pearson r=0.215 (p=0.2545)
+  WORDING RULE: call the mechanism 'mechanical' only if the length effect is present AND the atom
+  output order is largely unchanged; otherwise say 'a plausible mechanical explanation' and report
+  that the rewrite also reorders atoms.
+
+==========================================================================================================================
+D  D1 ANALYTIC FLOOR: what error does a near-duplicate partner with a >10-fold potency gap force?
+==========================================================================================================================
+  strict (D1) cliff pairs pooled: n=766, median |delta y| = 1.348 log units (IQR 1.158-1.697, mean 1.539)
+  A 1-nearest-neighbour predictor whose nearest training neighbour IS the cliff partner predicts
+  that partner's potency, so its absolute error on the cliff compound equals |delta y|.
+  Implied RMSE floor for such a predictor on D1 cliffs = sqrt(mean(dy^2)) = 1.638 log units.
+  Median-based floor (robust) = 1.348 log units.
+    observed D1 penalty (SVM, arm S0) = +0.3772  -- 28.0% of the median analytic floor
+    observed D1 penalty (RF, arm S0) = +0.3679  -- 27.3% of the median analytic floor
+    observed D1 penalty (GBM, arm S0) = +0.3702  -- 27.5% of the median analytic floor
+    observed D1 penalty (KNN, arm S0) = +0.3851  -- 28.6% of the median analytic floor
+  KNN NOTE: the observed D1 penalty is a small fraction of the floor a pure 1-NN predictor would
+  face, so the benchmark's k-NN model is not operating at that floor (k>1 and distance weighting
+  average over neighbours). The floor bounds what ANY local-neighbour predictor can achieve on
+  these pairs; it does not by itself explain the observed penalty in the fitted models.
